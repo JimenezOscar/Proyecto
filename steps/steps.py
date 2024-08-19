@@ -4,7 +4,7 @@ from behave import given, when, then
 API_URL = "http://localhost:5000"
 
 # Given: la API está en funcionamiento
-@given('la API está en funcionamiento') #  entonces YYy given es el decorador que se usa para asociar una funcion con
+@given('la API está en funcionamiento') #entonces y given es el decorador que se usa para asociar una funcion con
 # un paso
 # especifico en los escenarios definidos en el example.feature, la cadena "la API está en funcionamiento" hace
 # referencia al paso que debe buscar behave para ejecutar, por lo cual debe ser igual al que aparece en el gherkin.
