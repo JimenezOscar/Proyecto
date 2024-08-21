@@ -1,0 +1,32 @@
+ Las pruebas se realizan para verificar el correcto funcionamiento de la API y la gestión de errores. Se ejecutan
+ utilizando la biblioteca Behave, que interpreta los escenarios escritos en lenguaje Gherkin y realiza solicitudes HTTP
+  a la API para comprobar que las respuestas y los códigos de estado sean los esperados.
+
+1.	Obtener Todos los Productos: Verifica que la API devuelva la lista completa de productos con un código de estado 200.
+
+2.	Obtener un Producto por ID: Asegura que se puede obtener un producto específico por su ID y que la respuesta es correcta.
+
+3.	Crear un Nuevo Producto: Confirma que se puede agregar un nuevo producto y que la API responde con el producto creado.
+
+4.	Crear un Producto con Datos Inválidos: Testea que la API maneje datos inválidos correctamente y devuelva un error 422.
+
+5.	Crear un Producto con ID Duplicado: Verifica que la API no permita la creación de productos con IDs duplicados y devuelva un error 400.
+
+6.	Actualizar un Producto Existente: Asegura que se puede actualizar un producto y que la API responde con el producto actualizado.
+
+7.	Actualizar un Producto con Datos Inválidos: Comprueba que la API maneje datos inválidos en actualizaciones y devuelva un error 422.
+
+8.	Eliminar un Producto Existente: Verifica que se puede eliminar un producto y que la API responde con un código de estado 200.
+
+9.	Eliminar un Producto sin ID: Testea que se maneje adecuadamente una solicitud DELETE sin especificar un ID, devolviendo un error 405.
+
+10.	Reiniciar Productos: Confirma que se puede reiniciar la lista de productos a su estado inicial y que la API responde adecuadamente.
+Cómo Ejecutar las Pruebas
+
+1.  	Configurar el Entorno: Asegúrate de tener todas las dependencias instaladas (fastapi, pydantic, requests,
+behave).
+
+2.	Iniciar el Servidor: Ejecuta la API de FastAPI en el puerto especificado (por defecto, en http://localhost:5000).
+
+3. 	Ejecutar las Pruebas: Usa la herramienta Behave para ejecutar las pruebas de comportamiento. Las pruebas verifican
+que todos los endpoints de la API se comporten como se espera y manejen errores correctamente.

@@ -6,6 +6,7 @@ Feature: API de Productos
     Then el código de estado de la respuesta debe ser 200
     And la respuesta debe contener una lista de productos
 
+
   Scenario: Obtener un producto por ID
     Given la API está en funcionamiento
     When envío una solicitud GET a "/products/1"
@@ -34,7 +35,7 @@ Feature: API de Productos
       | id | name       | price | stock |
       | 1  | Producto 1 | 100   | 5     |
     Then el código de estado de la respuesta debe ser 400
-    And la respuesta debe contener un mensaje de error "Product with this ID already exists"
+    And la respuesta debe contener un mensaje de error "El producto con este ID ya existe"
 
   #aqui
 
@@ -66,3 +67,10 @@ Feature: API de Productos
     When envío una solicitud DELETE a "/products"
     Then el código de estado de la respuesta debe ser 405
     And la respuesta debe contener un mensaje de error "Method Not Allowed"
+
+
+  Scenario: Reiniciar los productos a su estado inicial
+    Given la API está en funcionamiento
+    When envío una solicitud POST a "/reset"
+    Then el código de estado es igual a 200
+    And los productos deben ser reiniciados a su estado inicial
