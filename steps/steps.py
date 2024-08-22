@@ -1,19 +1,19 @@
 #Este es un conjunto de pruebas automatizadas para una API de productos utilizando el framework Behave en Python.
 # Behave es un framework que permite escribir pruebas de comportamiento en un formato de texto legible y luego ejecutarlas
-import requests
-from behave import given, when, then
+import requests # Se utiliza para enviar solicitudes HTTP y manejar respuestas en Python. Permite realizar operaciones como enviar GET o POST requests.
+from behave import given, when, then #importa los decoradores de behave para que los podamos usar
 
 API_URL = "http://localhost:5000"
 
+# ---------------------------------- Obtener todos los productos---------------------------------------------------
 # Given: la API está en funcionamiento
 #verificar que la API esté en funcionamiento antes de continuar con otras pruebas. Se hace enviando una solicitud
 # HTTP GET a la URL de la API y comprobando que la respuesta tenga un código de estado 200
 @given('la API está en funcionamiento')
 def verificar_api_funcionando(context):
-    response = requests.get(API_URL)
+    response = requests.get(API_URL) #request.get, es el nombre del modulo
     assert response.status_code == 200
 
-# ---------------------------------- Obtener todos los productos---------------------------------------------------
 # Este paso envía una solicitud a la API para obtener la lista de todos los productos.
 # Usa una función para enviar una solicitud de tipo GET a la dirección específica de la API (/products).
 # La respuesta de esta solicitud se guarda en context.response
@@ -64,6 +64,10 @@ def enviar_solicitud_post_nuevo_producto(context):
         }
     context.response = requests.post(f"{API_URL}/products", json=product_data)
 
+@then('el codigo de estado de la respuesta debe ser 200')
+def verificar_codigo_estado_200(context):
+    assert context.response.status_code == 200
+
 # Verifica que la respuesta de la solicitud POST contiene el nuevo producto con el ID que se ha proporcionado.
 # Convierte la respuesta en formato JSON y comprueba que el ID del nuevo producto en la respuesta coincide con el ID
 # que se envió en la solicitud.
@@ -78,8 +82,8 @@ def verificar_nuevo_producto(context, id):
 # Gherkin, organiza esos datos en formato JSON, y luego hace una solicitud POST a la API. La respuesta de la API se guarda en context.response.
 @when('envío una solicitud POST a "/products" con datos inválidos')
 def enviar_solicitud_post_producto_datos_invalidos(context):
-    for row in context.table:
-        product_data = {
+    for row in context.table: #se usa un bucle for para recorrer context.table proporcionada por el archivo gherkin
+        product_data = {    #crea un diccionario con los productos
             "id": int(row['id']),
             "name": row['name'],
             "price": float(row['price']),

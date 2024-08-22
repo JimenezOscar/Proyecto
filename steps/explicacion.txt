@@ -1,6 +1,6 @@
  Las pruebas se realizan para verificar el correcto funcionamiento de la API y la gestión de errores. Se ejecutan
- utilizando la biblioteca Behave, que interpreta los escenarios escritos en lenguaje Gherkin y realiza solicitudes HTTP
-  a la API para comprobar que las respuestas y los códigos de estado sean los esperados.
+ utilizando la biblioteca Behave, que interpreta los escenarios escritos en lenguaje Gherkin y realiza solicitudes
+ HTTP a la API para comprobar que las respuestas y los códigos de estado sean los esperados.
 
 1.	Obtener Todos los Productos: Verifica que la API devuelva la lista completa de productos con un código de estado 200.
 
@@ -23,6 +23,7 @@
 10.	Reiniciar Productos: Confirma que se puede reiniciar la lista de productos a su estado inicial y que la API responde adecuadamente.
 Cómo Ejecutar las Pruebas
 
+COMO EJECUTAR
 1.  	Configurar el Entorno: Asegúrate de tener todas las dependencias instaladas (fastapi, pydantic, requests,
 behave).
 

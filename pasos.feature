@@ -18,7 +18,7 @@ Feature: API de Productos
     When envío una solicitud POST a "/products" con los siguientes datos
       | id | name       | price | stock |
       | 4  | Producto 4 | 51    | 11    |
-    Then el código de estado de la respuesta debe ser 200
+    Then el codigo de estado de la respuesta debe ser 200
     And la respuesta debe contener el nuevo producto con ID 4
 
   Scenario: Crear un producto con datos inválidos
@@ -37,7 +37,7 @@ Feature: API de Productos
     Then el código de estado de la respuesta debe ser 400
     And la respuesta debe contener un mensaje de error "El producto con este ID ya existe"
 
-  #aqui
+
 
   Scenario: Actualizar un producto existente
     Given la API está en funcionamiento
